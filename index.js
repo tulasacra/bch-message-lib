@@ -12,7 +12,7 @@ const MemoLib = require('./lib/memo')
 const MeritLib = require('./lib/merit')
 
 class BchMessage {
-  constructor (config) {
+  constructor (config, env) {
     if (!config || !config.bchjs) {
       throw new Error(
         'bch-js instance must be passed in the config object when instantiating.'
@@ -23,7 +23,7 @@ class BchMessage {
     this.bchjs = config.bchjs
 
     this.memo = new MemoLib(config)
-    this.merit = new MeritLib(config)
+    this.merit = new MeritLib(config, env)
   }
 }
 
